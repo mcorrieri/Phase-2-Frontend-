@@ -1,14 +1,16 @@
 import React from "react";
 import LakePersonList from "./LakePersonList";
 import LakeList from "./LakeList";
+import AddLake from "./AddLake";
 
-function Home({lakesArr}){
-    return(
-        <div>
-            <LakeList lakesArr={lakesArr}/>
-            <LakePersonList/>
-        </div>
-    )
+function Home({ lakesArr, onAddNewLake }) {
+  return (
+    <div>
+      <AddLake onAddNewLake={onAddNewLake} />
+      <LakeList lakesArr={lakesArr} onAddNewLake={onAddNewLake} />
+      <LakePersonList />
+    </div>
+  );
 }
 
 export default Home;
