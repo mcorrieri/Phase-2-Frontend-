@@ -19,10 +19,15 @@ function App() {
     setLakesArr(updatedLakeArr);
   }
 
+  function handleDeleteLake(deletedLake){
+    const newLakeArr = lakesArr.filter((lake) => lake !== deletedLake)
+    setLakesArr(newLakeArr)
+  }
+
   return (
     <div>
       <Header />
-      <Home lakesArr={lakesArr} onAddNewLake={handleAddLake} />
+      <Home lakesArr={lakesArr} onAddNewLake={handleAddLake} onDeleteLake={handleDeleteLake}/>
       <Login />
     </div>
   );
