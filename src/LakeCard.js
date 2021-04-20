@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function LakeCard({ lake, onDeleteLake }) {
-  const { id, name, image, location, description, wantToVisit, link } = lake;
-  const [haveVisited, setHaveVisited] = useState(false);
+  const { id, name, image} = lake;
 
   function handleDeleteLake() {
     fetch(`http://localhost:3000/lakes/${id}`, {
@@ -16,14 +15,10 @@ function LakeCard({ lake, onDeleteLake }) {
     <div>
       <h2>{name}</h2>
       <img src={image} alt={name} />
-      {/* <Link to={`lakes/${id}`}>hi there</Link> */}
-      <h3>{location}</h3>
-      <p>{description}</p>
-      <button onClick={() => setHaveVisited(!haveVisited)}>
-        {haveVisited ? "Down to Visit 😏" : "No thanks 🙄"}
-      </button>
+      <p>
+      <Link to={`lakes/${id}`}>View Lake Details</Link>
+      </p>
       <button onClick={handleDeleteLake}>🗑️</button>
-      <a href={link}>More Info</a>
     </div>
   );
 }
