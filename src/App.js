@@ -7,24 +7,34 @@ import LakeDetails from "./LakeDetails";
 
 function App() {
   const [lakesArr, setLakesArr] = useState([]);
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [userArr, setUserArr] = useState([]);
 
-  
   useEffect(() => {
     fetch(`http://localhost:3000/lakes`)
-    .then((res) => res.json())
-    .then((lakes) => {
-      setLakesArr(lakes);
-    });
+      .then((res) => res.json())
+      .then((lakes) => {
+        setLakesArr(lakes);
+      });
   }, []);
-  
-  function handleLogin(newUser){
-    setUser(newUser);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/lakePerson`)
+      .then((res) => res.json())
+      .then((lakePerson) => {
+        setUserArr(lakePerson);
+      });
+  }, []);
+
+  function handleAddUser(newUser) {
+    const updatedUserArr = [...userArr, newUser];
+    setUserArr(updatedUserArr);
   }
 
-  if(!user) {
-    return <Login onLogin={handleLogin}/>
-  }
+  // function handleLogin(newUser) {
+  //   setUser(newUser);
+  // }
 
   function handleAddLake(newLake) {
     const updatedLakeArr = [...lakesArr, newLake];
@@ -36,25 +46,31 @@ function App() {
     setLakesArr(newLakeArr);
   }
 
+  function handleDarkModeClick() {
+    setIsDarkMode(!isDarkMode);
+  }
+
   return (
-    <div>
-      <Header />
-        <Switch>
-          <Route exact path="/login">
-            <Login onLogin={handleLogin}/>
-          </Route>
-          <Route exact path="/">
-            <Home
-              lakesArr={lakesArr}
-              onAddNewLake={handleAddLake}
-              onDeleteLake={handleDeleteLake}
-            />
-          </Route>
-          <Route exact path="/lakes/:id">
-            <LakeDetails />
-          </Route>
-          <Route path="*"><h1>404 WRONG</h1></Route>
-        </Switch>
+    <div className={isDarkMode ? "App" : "App light"}>
+      <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} />
+      <Switch>
+        <Route exact path="/">
+          <Home
+            lakesArr={lakesArr}
+            onAddNewLake={handleAddLake}
+            onDeleteLake={handleDeleteLake}
+          />
+        </Route>
+        <Route exact path="/login">
+          <Login handleAddUser={handleAddUser} />
+        </Route>
+        <Route exact path="/lakes/:id">
+          <LakeDetails />
+        </Route>
+        <Route path="*">
+          <h1>404 WRONG</h1>
+        </Route>
+      </Switch>
     </div>
   );
 }
