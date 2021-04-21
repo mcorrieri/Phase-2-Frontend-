@@ -6,8 +6,6 @@ function AddLake({ onAddNewLake }) {
   const [location, setLocation] = useState("");
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
-  const [visits, setVisits] = useState("");
-  //   const [lakePersonId, setLakePersonId] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +15,6 @@ function AddLake({ onAddNewLake }) {
       location: location,
       link: link,
       description: description,
-      visits: visits,
     };
     fetch(`http://localhost:3000/lakes`, {
       method: "POST",
@@ -34,7 +31,6 @@ function AddLake({ onAddNewLake }) {
         setLocation("");
         setLink("");
         setDescription("");
-        setVisits("");
       });
   }
 
@@ -66,11 +62,7 @@ function AddLake({ onAddNewLake }) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <input
-          placeholder="Visits"
-          value={visits}
-          onChange={(e) => setVisits(e.target.value)}
-        />
+
         <input type="submit" value="Add New Lake" />
       </form>
     </div>

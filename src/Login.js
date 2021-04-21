@@ -17,13 +17,12 @@ function Login() {
       });
   }
 
-
   return (
     <div>
       <button>
         <Link to={`/signup`}>Create New Account</Link>
       </button>
-
+      <h2>LOGIN</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor={name}>Name</label>
         <input

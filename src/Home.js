@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import LakePersonList from "./LakePersonList";
 import LakeList from "./LakeList";
-import AddLake from "./AddLake";
+// import AddLake from "./AddLake";
 import Search from "./Search";
+import { Link } from "react-router-dom";
 
-function Home({ lakesArr, onAddNewLake, onDeleteLake }) {
+function Home({ lakesArr, onDeleteLake }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   function handleUpdatedSearch(newSearch) {
@@ -13,8 +14,13 @@ function Home({ lakesArr, onAddNewLake, onDeleteLake }) {
 
   return (
     <div>
+      <button>
+        <Link to={"/"}>Log Out</Link>
+      </button>
+      <button>
+        <Link to={"/newlake"}>Add New Lake</Link>
+      </button>
       <Search searchTerm={searchTerm} onUpdatedSearch={handleUpdatedSearch} />
-      <AddLake onAddNewLake={onAddNewLake} />
       <LakeList
         lakesArr={lakesArr}
         onDeleteLake={onDeleteLake}

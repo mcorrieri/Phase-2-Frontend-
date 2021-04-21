@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
 function Header({ onDarkModeClick, isDarkMode }) {
-  const [login, setLogin] = useState(true);
-  let loginBtn = "";
-
   return (
     <div>
       <nav>
@@ -15,10 +11,7 @@ function Header({ onDarkModeClick, isDarkMode }) {
           alt="Plenty of Lakes Logo"
         />
         <h1>Plenty of Lakes</h1>
-        <button onClick={()=>setLogin(!login)}>
-          {login ? loginBtn="Login" : loginBtn="Logout"} 
-          <Link to={"/"}>{loginBtn}</Link>
-        </button>
+
         <button onClick={onDarkModeClick}>
           {isDarkMode ? "Light mode" : "Dark mode"}
         </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function NewUser({ handleAddUser }) {
   const [name, setName] = useState("");
@@ -21,10 +21,13 @@ function NewUser({ handleAddUser }) {
         setName("");
       });
   }
-  
 
   return (
     <div>
+      <button>
+        <Link to={`/`}>Login</Link>
+      </button>
+      <h2>SIGN UP!</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor={name}>Name</label>
         <input

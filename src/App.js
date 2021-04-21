@@ -5,6 +5,7 @@ import Header from "./Header";
 import Login from "./Login";
 import LakeDetails from "./LakeDetails";
 import NewUser from "./NewUser";
+import AddLake from "./AddLake";
 
 function App() {
   const [lakesArr, setLakesArr] = useState([]);
@@ -50,26 +51,32 @@ function App() {
   function handleDarkModeClick() {
     setIsDarkMode(!isDarkMode);
   }
+  const header = (
+    <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} />
+  );
 
   return (
-    <div className={isDarkMode ? "App" : "App light"}>
-      <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} />
+    <div>
+      {/* <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} /> */}
       <Switch>
         <Route exact path="/">
           <Login />
         </Route>
         <Route exact path="/signup">
-          <NewUser handleAddUser={handleAddUser}/>
+          {header}
+          <NewUser handleAddUser={handleAddUser} />
         </Route>
         <Route exact path="/home">
-          <Home
-            lakesArr={lakesArr}
-            onAddNewLake={handleAddLake}
-            onDeleteLake={handleDeleteLake}
-          />
+          {header}
+          <Home lakesArr={lakesArr} onDeleteLake={handleDeleteLake} />
         </Route>
         <Route exact path="/lakes/:id">
+          {header}
           <LakeDetails />
+        </Route>
+        <Route exact path="/newlake">
+          {header}
+          <AddLake onAddNewLake={handleAddLake} />
         </Route>
         <Route path="*">
           <h1>404 WRONG</h1>
