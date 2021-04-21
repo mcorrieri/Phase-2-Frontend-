@@ -4,6 +4,7 @@ import Home from "./Home";
 import Header from "./Header";
 import Login from "./Login";
 import LakeDetails from "./LakeDetails";
+import NewUser from "./NewUser";
 
 function App() {
   const [lakesArr, setLakesArr] = useState([]);
@@ -55,14 +56,17 @@ function App() {
       <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} />
       <Switch>
         <Route exact path="/">
+          <Login />
+        </Route>
+        <Route exact path="/signup">
+          <NewUser handleAddUser={handleAddUser}/>
+        </Route>
+        <Route exact path="/home">
           <Home
             lakesArr={lakesArr}
             onAddNewLake={handleAddLake}
             onDeleteLake={handleDeleteLake}
           />
-        </Route>
-        <Route exact path="/login">
-          <Login handleAddUser={handleAddUser} />
         </Route>
         <Route exact path="/lakes/:id">
           <LakeDetails />

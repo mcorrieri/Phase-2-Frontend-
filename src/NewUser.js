@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function NewUser({ handleAddUser }) {
   const [name, setName] = useState("");
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,10 +16,12 @@ function NewUser({ handleAddUser }) {
     })
       .then((r) => r.json())
       .then((newName) => {
-        setName(newName);
+        handleAddUser(newName);
+        history.push("/home");
+        setName("");
       });
   }
-  handleAddUser(name);
+  
 
   return (
     <div>

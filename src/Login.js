@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import NewUser from "./NewUser";
+import { useHistory, Link } from "react-router-dom";
 
-function Login({ handleAddUser }) {
+function Login() {
   const [name, setName] = useState("");
   const history = useHistory();
 
@@ -13,19 +12,17 @@ function Login({ handleAddUser }) {
       .then((r) => r.json())
       .then((users) => {
         if (users.length > 0) {
-          //   onLogin(users[0]);
-          history.push("/");
+          history.push("/home");
         }
       });
   }
 
-  function handleNewUser() {
-    return <NewUser handleAddUser={handleAddUser} />;
-  }
 
   return (
     <div>
-      <button onClick={handleNewUser}>Create New Account</button>
+      <button>
+        <Link to={`/signup`}>Create New Account</Link>
+      </button>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor={name}>Name</label>
