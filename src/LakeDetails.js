@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import Button from "./components/Button";
 
 function LakeDetails(){
     const [haveVisited, setHaveVisited] = useState(false);
@@ -27,9 +28,9 @@ function LakeDetails(){
             <img src={image} alt={name}/>
             <h3>{location}</h3>
       <p>{description}</p>
-      <button onClick={() => setHaveVisited(!haveVisited)}>
+      <Button onClick={() => setHaveVisited(!haveVisited)}>
         {haveVisited ? "Down to Visit 😏" : "No thanks 🙄"}
-      </button>
+      </Button>
       <a href={link}>More Info</a>
         </div>
     )

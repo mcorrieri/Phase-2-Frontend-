@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
+import Button from "./components/Button";
 
 function NewUser({ handleAddUser }) {
   const [name, setName] = useState("");
@@ -24,9 +25,9 @@ function NewUser({ handleAddUser }) {
 
   return (
     <div>
-      <button>
+      <Button>
         <Link to={`/`}>Login</Link>
-      </button>
+      </Button>
       <h2>SIGN UP!</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor={name}>Name</label>

@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./components/Button";
 
 function Header({ onDarkModeClick, isDarkMode }) {
   return (
@@ -12,9 +13,9 @@ function Header({ onDarkModeClick, isDarkMode }) {
         />
         <h1>Plenty of Lakes</h1>
 
-        <button onClick={onDarkModeClick}>
+        <Button onClick={onDarkModeClick}>
           {isDarkMode ? "Light mode" : "Dark mode"}
-        </button>
+        </Button>
       </nav>
     </div>
   );

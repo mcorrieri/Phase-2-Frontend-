@@ -4,6 +4,8 @@ import LakeList from "./LakeList";
 // import AddLake from "./AddLake";
 import Search from "./Search";
 import { Link } from "react-router-dom";
+import Button from "./components/Button";
+
 
 function Home({ lakesArr, onDeleteLake }) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,12 +16,12 @@ function Home({ lakesArr, onDeleteLake }) {
 
   return (
     <div>
-      <button>
+      <Button>
         <Link to={"/"}>Log Out</Link>
-      </button>
-      <button>
+      </Button>
+      <Button>
         <Link to={"/newlake"}>Add New Lake</Link>
-      </button>
+      </Button>
       <Search searchTerm={searchTerm} onUpdatedSearch={handleUpdatedSearch} />
       <LakeList
         lakesArr={lakesArr}

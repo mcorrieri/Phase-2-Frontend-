@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "./components/Button";
 
 function LakeCard({ lake, onDeleteLake }) {
   const { id, name, image} = lake;
@@ -18,7 +19,7 @@ function LakeCard({ lake, onDeleteLake }) {
       <p>
       <Link to={`lakes/${id}`}>View Lake Details</Link>
       </p>
-      <button onClick={handleDeleteLake}>🗑️</button>
+      <Button onClick={handleDeleteLake}>🗑️</Button>
     </div>
   );
 }
