@@ -4,7 +4,7 @@ import Button from "./components/Button";
 import BackgroundImg from "./components/BackgroundImg";
 import DivContent from "./components/DivContent";
 
-function Login() {
+function Login({onLogin}) {
   const [name, setName] = useState("");
   const history = useHistory();
 
@@ -13,8 +13,10 @@ function Login() {
 
     fetch(`http://localhost:3000/lakePerson?name=${name}`)
       .then((r) => r.json())
-      .then((users) => {
-        if (users.length > 0) {
+      .then((user) => {
+        if (user.length > 0) {
+          console.log(user[0])
+          onLogin(user[0]);
           history.push("/home");
         }
       });

@@ -2,18 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-function Header({ onDarkModeClick, isDarkMode }) {
+function Header({ onDarkModeClick, isDarkMode, user, id }) {
   return (
     <HeaderStyle>
-      <nav>
+      <NavBarStyle>
         <Link to="/home">
           <HeaderImg src="logo.png" alt="Plenty of Lakes Logo" />
         </Link>
-
+        {user ? 
+        <Link to={`lakePerson/${id}`}>
+          <h1>Welcome, {user}!</h1>
+         </Link> : null
+        }
         <DarkBtn onClick={onDarkModeClick}>
           {isDarkMode ? "Light mode" : "Dark mode"}
         </DarkBtn>
-      </nav>
+      </NavBarStyle>
     </HeaderStyle>
   );
 }
@@ -33,10 +37,10 @@ const HeaderImg = styled.img`
 const DarkBtn = styled.button`
   cursor: pointer;
   background: transparent;
-  font-size: 16px;
-  font-weight: bolder;
+  font-size: large;
+  font-family: Garamond;
   border-radius: 3px;
-  color: darkblue;
+  color:  rgb(83, 143, 83);
   border: 2px solid sandybrown;
   margin: 0 1em;
   padding: 0.25em 1em;
@@ -52,6 +56,6 @@ const DarkBtn = styled.button`
   }
 `;
 
-// const NavBarStyle = styled.nav `
-
-// `;
+const NavBarStyle = styled.nav `
+  padding: 10px;
+`;

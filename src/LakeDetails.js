@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import Button from "./components/Button";
 import styled from "styled-components";
 
-function LakeDetails() {
-  const [haveVisited, setHaveVisited] = useState(false);
+function LakeDetails({onFavList, favList}) {
+  const [isFavorite, setIsFavorite] = useState(true);
   const [lake, setLake] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const { id } = useParams();
@@ -20,6 +20,10 @@ function LakeDetails() {
 
   if (!isLoaded) return <h2>Loading...</h2>;
 
+  if(isFavorite){
+
+  }
+
   const { name, image, location, description, link } = lake;
 
   return (
@@ -28,8 +32,8 @@ function LakeDetails() {
       <LakeDetailImg src={image} alt={name} />
       <h3>Location: {location}</h3>
       <p>Comments: {description}</p>
-      <Button onClick={() => setHaveVisited(!haveVisited)}>
-        {haveVisited ? "Down to Visit 😏" : "No thanks 🙄"}
+      <Button onClick={() => setIsFavorite(!isFavorite)}>
+        {isFavorite ? "Down to Visit 😏" : "No thanks 🙄"}
       </Button>
       <a href={link}>More Info</a>
     </LakeDetailsDiv>

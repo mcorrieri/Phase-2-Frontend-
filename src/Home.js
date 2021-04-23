@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 // import Button from "./components/Button";
 import styled from "styled-components";
 
-function Home({ lakesArr, onDeleteLake, onDarkMode }) {
+function Home({ lakesArr, onDeleteLake, onDarkMode, onLogOut }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   function handleUpdatedSearch(newSearch) {
@@ -17,7 +17,7 @@ function Home({ lakesArr, onDeleteLake, onDarkMode }) {
   return (
     <div>
       <LogOutButton>
-        <Link to={"/"}>Log Out</Link>
+        <Link onClick={onLogOut} to={"/"}>Log Out</Link>
       </LogOutButton>
       <LogOutButton>
         <Link to={"/newlake"}>Add New Lake</Link>

@@ -24,11 +24,16 @@ const SearchBar = styled.div`
 const SearchLabel = styled.label`
   font-size: x-large;
   font-family: Garamond;
+  font-weight: bold;
 `;
 
 const SearchInput = styled.input`
   width: 400px;
   border-radius: 25px;
+  border-color: lightgray;
   height: 25px;
   margin: 15px;
+  font-size: large;
+  font-weight: bold;
+  font-family: Garamond;
 `;

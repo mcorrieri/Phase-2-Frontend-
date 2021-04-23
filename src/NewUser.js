@@ -4,7 +4,7 @@ import Button from "./components/Button";
 import BackgroundImg from "./components/BackgroundImg";
 import DivContent from "./components/DivContent";
 
-function NewUser({ handleAddUser }) {
+function NewUser({ handleAddUser, onLogin }) {
   const [name, setName] = useState("");
   const history = useHistory();
 
@@ -15,11 +15,14 @@ function NewUser({ handleAddUser }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: name,
+        favLakes: []
       }),
     })
       .then((r) => r.json())
       .then((newName) => {
+        console.log(newName)
         handleAddUser(newName);
+        onLogin(newName);
         history.push("/home");
         setName("");
       });

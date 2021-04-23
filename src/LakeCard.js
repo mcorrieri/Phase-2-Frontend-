@@ -17,6 +17,7 @@ function LakeCard({ lake, onDeleteLake, onDarkMode }) {
     <div className={onDarkMode ? "Card" : "Card light"}>
       <Title>{name}</Title>
       <LakeImg src={image} alt={name} />
+      <br/>
       <Button>
         <NavLink className="button" to={`lakes/${id}`}>
           View Lake Details
@@ -32,6 +33,7 @@ export default LakeCard;
 const LakeImg = styled.img`
   width: 100%;
   max-width: 400px;
+  max-height: 200px;
   position: relative;
 `;
 
