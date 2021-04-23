@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import Button from "./components/Button";
+import styled from "styled-components";
 
 function Login() {
   const [name, setName] = useState("");
@@ -19,7 +20,9 @@ function Login() {
   }
 
   return (
-    <div>
+    <BackgroundImg>
+      <DivContent>
+
       <Button>
         <Link to={`/signup`}>Create New Account</Link>
       </Button>
@@ -33,8 +36,30 @@ function Login() {
         ></input>
         <input type="submit" value="Continue your lake love journey" />
       </form>
-    </div>
+      </DivContent>
+    </BackgroundImg>
   );
 }
 
 export default Login;
+
+const BackgroundImg = styled.div`
+  background-image: url("background_pic.jpg");
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  margin: 10% auto auto auto;
+`;
+
+const DivContent = styled.div `
+  text-align: center;
+  position: relative;
+  top: 25%;
+  `;
+
+
+
+
+/* form {
+  background-color: grey;
+} */

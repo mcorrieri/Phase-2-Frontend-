@@ -3,7 +3,7 @@ import LakeCard from "./LakeCard";
 import Button from "./components/Button";
 import styled from "styled-components";
 
-function LakeList({ lakesArr, onDeleteLake, searchTerm }) {
+function LakeList({ lakesArr, onDeleteLake, searchTerm, onDarkMode }) {
   const filteredLakes = lakesArr.filter((lakeObj) => {
     return lakeObj.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
@@ -15,6 +15,7 @@ function LakeList({ lakesArr, onDeleteLake, searchTerm }) {
         lake={lake}
         onDeleteLake={onDeleteLake}
         Button={Button}
+        onDarkMode={onDarkMode}
       />
     );
   });

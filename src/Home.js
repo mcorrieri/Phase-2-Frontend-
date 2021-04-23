@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 // import Button from "./components/Button";
 import styled from "styled-components";
 
-function Home({ lakesArr, onDeleteLake }) {
+function Home({ lakesArr, onDeleteLake, onDarkMode }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   function handleUpdatedSearch(newSearch) {
@@ -27,6 +27,7 @@ function Home({ lakesArr, onDeleteLake }) {
         lakesArr={lakesArr}
         onDeleteLake={onDeleteLake}
         searchTerm={searchTerm}
+        onDarkMode={onDarkMode}
       />
       <LakePersonList />
     </div>
@@ -40,8 +41,8 @@ const LogOutButton = styled.button`
   background: transparent;
   font-size: 16px;
   border-radius: 3px;
-  color: palevioletred;
-  border: 2px solid palevioletred;
+  color: darkblue;
+  border: 2px solid darkblue;
   margin: 0 1em;
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
@@ -49,7 +50,7 @@ const LogOutButton = styled.button`
   left: 100%;
 
   &:hover {
-    background-color: palevioletred;
+    background-color: darkblue;
     color: white;
   }
 `;

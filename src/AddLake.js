@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
 function AddLake({ onAddNewLake }) {
   const [name, setName] = useState("");
@@ -35,38 +36,76 @@ function AddLake({ onAddNewLake }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Name"
+    <BackgroundDiv>
+      <LakeForm onSubmit={handleSubmit}>
+        <FormInput
+          placeholder="  Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <input
-          placeholder="Image"
+        <br/>
+        <FormInput
+          placeholder="  Image"
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
-        <input
-          placeholder="Location"
+        <br/>
+        <FormInput
+          placeholder="  Location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
-        <input
-          placeholder="Link"
+        <br/>
+        <FormInput
+          placeholder="  Link"
           value={link}
           onChange={(e) => setLink(e.target.value)}
         />
-        <input
-          placeholder="Description"
+        <br/>
+        <FormInput
+          placeholder="  Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+        <br/>
 
-        <input type="submit" value="Add New Lake" />
-      </form>
-    </div>
+        <SubmitBtn type="submit" value="Add New Lake" />
+      </LakeForm>
+    </BackgroundDiv>
   );
 }
 
 export default AddLake;
+
+const LakeForm = styled.form`
+  text-align: center;
+  margin: 50px;
+`;
+
+const FormInput = styled.input`
+  width: 400px;
+  border-radius: 25px;
+  height: 25px;
+  margin: 5px;
+`;
+
+const SubmitBtn = styled.input`
+    cursor: pointer;
+    background: rgba(84, 149, 167, 0.7);
+    font-size: 16px;
+    border-radius: 3px;
+    color: darkblue;
+    border: 2px solid darkblue;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+    transition: 0.5s all ease-out;
+
+    &:hover {
+    background-color: darkblue;
+    color: white;
+    }
+`;
+
+const BackgroundDiv = styled.div`
+  background-image: url("lake-lure-NC.jpg");
+`;

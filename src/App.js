@@ -60,7 +60,7 @@ function App() {
           <NewUser handleAddUser={handleAddUser}/>
         </Route>
         <Route exact path="/home">
-          <Home lakesArr={lakesArr} onDeleteLake={handleDeleteLake} />
+          <Home lakesArr={lakesArr} onDeleteLake={handleDeleteLake} onDarkMode={isDarkMode}/>
         </Route>
         <Route exact path="/lakes/:id">
           <LakeDetails />

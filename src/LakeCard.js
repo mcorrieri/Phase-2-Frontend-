@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Button from "./components/Button";
 import styled from "styled-components";
 
-function LakeCard({ lake, onDeleteLake }) {
+function LakeCard({ lake, onDeleteLake, onDarkMode }) {
   const { id, name, image } = lake;
 
   function handleDeleteLake() {
@@ -13,27 +13,21 @@ function LakeCard({ lake, onDeleteLake }) {
     onDeleteLake(lake);
   }
 
+
   return (
-    <LakeCardStyle>
+    
+    <div className={onDarkMode ? "Card" : "Card light"}>
       <Title>{name}</Title>
       <LakeImg src={image} alt={name} />
       <Button>
-        <Link to={`lakes/${id}`}>View Lake Details</Link>
+        <NavLink className="button" to={`lakes/${id}`}>View Lake Details</NavLink>
       </Button>
       <TrashButton onClick={handleDeleteLake}>🗑️</TrashButton>
-    </LakeCardStyle>
+    </div>
   );
 }
 
 export default LakeCard;
-
-const LakeCardStyle = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  position: relative;
-  border: 3px solid black;
-  background-color: lightseagreen;
-`;
 
 const LakeImg = styled.img`
   width: 100%;
@@ -50,17 +44,18 @@ const TrashButton = styled.button`
   background: transparent;
   font-size: 16px;
   border-radius: 3px;
-  color: palevioletred;
-  border: 2px solid palevioletred;
+  color: darkblue;
+  border: 2px solid darkblue;
   margin: 0 1em;
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
   width: 50px;
   position: relative;
   left: 220px;
+  text-align: center;
 
   &:hover {
-    background-color: palevioletred;
+    background-color: darkblue;
     color: white;
   }
 `;

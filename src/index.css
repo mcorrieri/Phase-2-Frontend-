@@ -14,10 +14,35 @@ code {
 
 .App {
   color: white;
-  background-color: rgb(10, 21, 138);
+  background-color: #121212;
+  min-height: 100vh;
 }
 
 .App.light {
   color: black;
-  background-color: rgb(106, 198, 223);
+  background-color: #fbeec1ce;
+}
+
+.Card.light {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  /* border: 3px solid black; */
+  background-color: rgba(84, 149, 167, 0.664);
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.Card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  /* border: 3px solid black; */
+  background-color: rgb(50, 91, 102);
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px midnightblue;
+}
+
+.button {
+  font-family: Garamond;
 }
