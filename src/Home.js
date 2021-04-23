@@ -42,7 +42,7 @@ const LogOutButton = styled.button`
   font-size: 16px;
   border-radius: 3px;
   color: darkblue;
-  border: 2px solid darkblue;
+  border: 2px solid sandybrown;
   margin: 0 1em;
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
@@ -50,7 +50,7 @@ const LogOutButton = styled.button`
   left: 100%;
 
   &:hover {
-    background-color: darkblue;
+    background-color: sandybrown;
     color: white;
   }
 `;

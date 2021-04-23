@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 function AddLake({ onAddNewLake }) {
   const [name, setName] = useState("");
@@ -7,6 +8,7 @@ function AddLake({ onAddNewLake }) {
   const [location, setLocation] = useState("");
   const [link, setLink] = useState("");
   const [description, setDescription] = useState("");
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,6 +34,7 @@ function AddLake({ onAddNewLake }) {
         setLocation("");
         setLink("");
         setDescription("");
+        history.push("/home");
       });
   }
 
@@ -43,31 +46,31 @@ function AddLake({ onAddNewLake }) {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <br/>
+        <br />
         <FormInput
           placeholder="  Image"
           value={image}
           onChange={(e) => setImage(e.target.value)}
         />
-        <br/>
+        <br />
         <FormInput
           placeholder="  Location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
-        <br/>
+        <br />
         <FormInput
           placeholder="  Link"
           value={link}
           onChange={(e) => setLink(e.target.value)}
         />
-        <br/>
+        <br />
         <FormInput
           placeholder="  Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <br/>
+        <br />
 
         <SubmitBtn type="submit" value="Add New Lake" />
       </LakeForm>
@@ -90,20 +93,20 @@ const FormInput = styled.input`
 `;
 
 const SubmitBtn = styled.input`
-    cursor: pointer;
-    background: rgba(84, 149, 167, 0.7);
-    font-size: 16px;
-    border-radius: 3px;
-    color: darkblue;
-    border: 2px solid darkblue;
-    margin: 0 1em;
-    padding: 0.25em 1em;
-    transition: 0.5s all ease-out;
+  cursor: pointer;
+  background: rgba(84, 149, 167, 0.7);
+  font-size: 16px;
+  border-radius: 3px;
+  color: darkblue;
+  border: 2px solid darkblue;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  transition: 0.5s all ease-out;
 
-    &:hover {
+  &:hover {
     background-color: darkblue;
     color: white;
-    }
+  }
 `;
 
 const BackgroundDiv = styled.div`

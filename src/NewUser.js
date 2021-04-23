@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import Button from "./components/Button";
+import BackgroundImg from "./components/BackgroundImg";
+import DivContent from "./components/DivContent";
 
 function NewUser({ handleAddUser }) {
   const [name, setName] = useState("");
@@ -24,21 +26,23 @@ function NewUser({ handleAddUser }) {
   }
 
   return (
-    <div>
-      <Button>
-        <Link to={`/`}>Login</Link>
-      </Button>
-      <h2>SIGN UP!</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor={name}>Name</label>
-        <input
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        ></input>
-        <input type="submit" value="Start your lake love journey" />
-      </form>
-    </div>
+    <BackgroundImg>
+      <DivContent>
+        <Button>
+          <Link to={`/`}>Login</Link>
+        </Button>
+        <h2>SIGN UP!</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor={name}>Name</label>
+          <input
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></input>
+          <input type="submit" value="Start your lake love journey" />
+        </form>
+      </DivContent>
+    </BackgroundImg>
   );
 }
 export default NewUser;

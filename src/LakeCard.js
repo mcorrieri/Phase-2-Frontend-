@@ -13,14 +13,14 @@ function LakeCard({ lake, onDeleteLake, onDarkMode }) {
     onDeleteLake(lake);
   }
 
-
   return (
-    
     <div className={onDarkMode ? "Card" : "Card light"}>
       <Title>{name}</Title>
       <LakeImg src={image} alt={name} />
       <Button>
-        <NavLink className="button" to={`lakes/${id}`}>View Lake Details</NavLink>
+        <NavLink className="button" to={`lakes/${id}`}>
+          View Lake Details
+        </NavLink>
       </Button>
       <TrashButton onClick={handleDeleteLake}>🗑️</TrashButton>
     </div>
@@ -45,7 +45,7 @@ const TrashButton = styled.button`
   font-size: 16px;
   border-radius: 3px;
   color: darkblue;
-  border: 2px solid darkblue;
+  border: none;
   margin: 0 1em;
   padding: 0.25em 1em;
   transition: 0.5s all ease-out;
@@ -55,7 +55,7 @@ const TrashButton = styled.button`
   text-align: center;
 
   &:hover {
-    background-color: darkblue;
+    background-color: red;
     color: white;
   }
 `;

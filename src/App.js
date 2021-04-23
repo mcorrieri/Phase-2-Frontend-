@@ -10,7 +10,7 @@ import Wrapper from "./components/Wrapper";
 
 function App() {
   const [lakesArr, setLakesArr] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [userArr, setUserArr] = useState([]);
 
   useEffect(() => {
@@ -47,31 +47,35 @@ function App() {
   function handleDarkModeClick() {
     setIsDarkMode(!isDarkMode);
   }
- 
+
   return (
     <div className={isDarkMode ? "App" : "App light"}>
-      <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick}/>
+      <Header isDarkMode={isDarkMode} onDarkModeClick={handleDarkModeClick} />
       <Wrapper>
-      <Switch>
-        <Route exact path="/">
-          <Login/>
-        </Route>
-        <Route exact path="/signup">
-          <NewUser handleAddUser={handleAddUser}/>
-        </Route>
-        <Route exact path="/home">
-          <Home lakesArr={lakesArr} onDeleteLake={handleDeleteLake} onDarkMode={isDarkMode}/>
-        </Route>
-        <Route exact path="/lakes/:id">
-          <LakeDetails />
-        </Route>
-        <Route exact path="/newlake">
-          <AddLake onAddNewLake={handleAddLake} />
-        </Route>
-        <Route path="*">
-          <h1>404 WRONG</h1>
-        </Route>
-      </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route exact path="/signup">
+            <NewUser handleAddUser={handleAddUser} />
+          </Route>
+          <Route exact path="/home">
+            <Home
+              lakesArr={lakesArr}
+              onDeleteLake={handleDeleteLake}
+              onDarkMode={isDarkMode}
+            />
+          </Route>
+          <Route exact path="/lakes/:id">
+            <LakeDetails />
+          </Route>
+          <Route exact path="/newlake">
+            <AddLake onAddNewLake={handleAddLake} />
+          </Route>
+          <Route path="*">
+            <h1>404 WRONG</h1>
+          </Route>
+        </Switch>
       </Wrapper>
     </div>
   );
